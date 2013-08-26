@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <style>
+body{
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
+  margin: 0 auto;
+}
+.show-animation {
+  background-color:red;
+  -webkit-transition:1s linear all;
+  -moz-transition:1s linear all;
+  -o-transition:1s linear all;
+  transition:1s linear all;
+  opacity: 0;
+  left: 0;
+  margin-left: 50px;
+}
+
+.show-animation.show-animation-active {
+  background: blue;
+  opacity: 1;
+  left: 50%;
+  margin-left: 500x;
+}
+    </style>
+  </head>
+<body ng-app>
+    <div ng-controller="Ctrl">
+    <p ng-show="show" ng-animate="{show: 'show-animation'}">
+      some paragraph
+    </p>
+    <button ng-click="showP()">Click me</button>
+  </div>
+</body>
+<script>
+
+  function Ctrl($scope){
+  $scope.show = true;
+  $scope.showP = function(){
+    $scope.show = !$scope.show;
+  };
+
+}
+</script>
+</html>

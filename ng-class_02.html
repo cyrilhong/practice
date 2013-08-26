@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <style>
+
+    .show-run, .show-go {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+      .show-run {
+  background-color:red;
+  opacity: 1;
+}
+
+.show-run.show-run-active {
+  background: blue;
+  opacity: 1;
+}
+      .show-go {
+  background-color:green;
+  opacity: 1;
+}
+
+.show-go.show-go-active {
+  background: black;
+  opacity: 1;
+}
+    </style>
+  </head>
+<body ng-app>
+  <div ng-controller="Ctrl">
+    <p ng-show="show" ng-animate="{run: 'show-run',go: 'show-go'}">
+      some paragraph
+    </p>
+    <button ng-click="showP()">Click me</button>
+  </div>
+</body>
+<script>
+
+  function Ctrl($scope){
+  $scope.show = true;
+  $scope.showP = function(){
+    $scope.show = !$scope.show;
+  };
+
+}
+</script>
+</html>
